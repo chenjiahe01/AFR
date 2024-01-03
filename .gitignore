@@ -1,6 +1,7 @@
-
+data/
 .idea/
 .env
 __pycache__/
-
+test.py
+try.py
 .DS_Store

@@ -223,6 +223,7 @@ def guarded_detectPath(path , alList ,beta , gamma , weight):
         if j == 100:
             break
         pred, score, fv = guarded_detect_file(path+file, alList ,beta , gamma , weight)
+        # print(f"file:{path+file},pred: {pred}")
         for i in range(128):
             if fv[0][i]>0:
                 activ[i]+=1
@@ -488,7 +489,8 @@ def compare_method():
         writer = csv.writer(f)
         writer.writerow(['benign',str(1-our_detect/1000),str(1-gs_detect/1000),str(1-mab_detect/1000),str(1-kreuk_detect/1000)])
     print("benign done!")
-detectPath(clf,config.get('benign_samples'))
+# detectPath(clf,config.get('benign_samples'))
+guarded_detectPath(config.get('benign_samples'),[12,18,36,95,102,124],1,1,weight)
 # findParaBeta(weight,afLists)
 # findParaGamma(weight,afLists)
 # detectPath("../mab_samples/output/evasive/")
