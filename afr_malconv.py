@@ -5,7 +5,7 @@ from secml_malware.models import  MalConv
 from secml_malware.models.c_classifier_end2end_malware_afr import CClassifierEnd2EndMalware
 class AFR_MalConv(AFR):
     def __init__(self) -> None:
-        super().__init__()
+        super(AFR_MalConv,self).__init__()
     def load_dnn_model(self,path=None):
         self.model = CClassifierEnd2EndMalware(model=MalConv())
         self.model.load_pretrained_model(path)
